@@ -1,17 +1,15 @@
 import * as admin from "firebase-admin";
-import { initializeApp, applicationDefault, cert } from 'firebase-admin/app';
-import { getFirestore } from 'firebase-admin/firestore';
 
-import serviceAccountKey from "../services/firebase/config/serviceAccountKey.json";
+import serviceAccount from "../services/firebase/config/serviceAccountKey.json";
 import { sentences } from "./sentences";
 
 try {
 
-    const app = initializeApp({
-        credential: cert(serviceAccountKey as admin.ServiceAccount)
+    admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount as admin.AppOptions)
     });
 
-    const db = getFirestore(app);
+    const db = admin.firestore();
 
     console.log("Firestore initialized");
 
