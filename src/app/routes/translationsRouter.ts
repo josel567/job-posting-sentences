@@ -12,7 +12,7 @@ translationsRouter.get('/', async (req, res) => {
     const { text, targetLang } = req.body;
     const translatedText = await translationsController.translate(text, targetLang);
 
-     return res.json(translatedText); 
+    return res.json(translatedText); 
 });
 
 export default translationsRouter;
