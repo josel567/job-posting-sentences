@@ -1,21 +1,20 @@
-import { ServiceAccount } from "firebase-admin";
-import { initializeApp, cert} from "firebase-admin/app";
-import { getFirestore } from "firebase-admin/firestore";
+import * as admin from "firebase-admin";
 
 import { SentencePrimitives, Sentence } from "../domain/models/sentence";
 import { ISentenceRepository } from "./ISentenceRepository";
+
 import serviceAccount from "../services/firebase/config/serviceAccountKey.json";
 
 export class FirestoreSentenceRepository implements ISentenceRepository {
 
-    private readonly db: FirebaseFirestore.Firestore;
+    private readonly db: admin.firestore.Firestore;
 
     constructor() {
-        initializeApp({
-            credential: cert(serviceAccount as ServiceAccount)
+        admin.initializeApp({
+            credential: admin.credential.cert(serviceAccount as admin.AppOptions)
         });
-          
-        this.db = getFirestore();
+
+        this.db = admin.firestore();
     }
 
     public async updateOne(id: string, data: Partial<SentencePrimitives>): Promise<void> {
@@ -48,15 +47,8 @@ export class FirestoreSentenceRepository implements ISentenceRepository {
     }
 
     public async save(sentence: Sentence): Promise<void> {
-        try {
-            console.log(sentence.serialize());
-            const docRef = this.db.collection("sentences").doc();
-            await docRef.set({text: sentence.serialize().text});
-            console.log("Setted document");
-            
-        } catch (error) {
-            console.log(error);
-        }
+        const docRef = this.db.collection("sentences").doc();
+        await docRef.set({text: sentence.serialize().text});
     }
     
 }
