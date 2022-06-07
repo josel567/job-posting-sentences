@@ -4,14 +4,18 @@ import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import sentencesRouter from './app/routes/sentencesRouter';
 import translationsRouter from './app/routes/translationsRouter';
+import viewsRouter from './app/routes/viewsRouter';
 
 dotenv.config();
 
 const app: Express = express();
 
+app.set('view engine', 'ejs');
+
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
+app.use('/', viewsRouter);
 app.use('/sentences', sentencesRouter);
 app.use('/translations', translationsRouter);
 
