@@ -1,4 +1,4 @@
-import { Sentence } from "../domain/models/sentence";
+import { Sentence, SentencePrimitives } from "../domain/models/sentence";
 import { ISentenceRepository } from "../infrastructure/ISentenceRepository";
 
 export class CrudSentenceController {
@@ -22,9 +22,8 @@ export class CrudSentenceController {
         });
     }
 
-    public async update(id: string): Promise<Sentence> {
-        const sentencePrimitives = await this.sentenceRepository.updateOne(id);
-        return Sentence.fromPrimitives(sentencePrimitives);
+    public async update(id: string, data: Partial<SentencePrimitives>): Promise<void> {
+        await this.sentenceRepository.updateOne(id, data);
     }
 
     public async delete(id: string): Promise<void> {

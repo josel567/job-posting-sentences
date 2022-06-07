@@ -5,5 +5,5 @@ export interface ISentenceRepository {
     findAll(): Promise<SentencePrimitives[]>;
     save(sentence: Sentence): Promise<void>;
     delete(id: string): Promise<void>;
-    updateOne(id: string): Promise<SentencePrimitives>;
+    updateOne(id: string, data: Partial<SentencePrimitives>): Promise<void>;
 }

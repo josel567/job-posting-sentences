@@ -13,5 +13,5 @@ app.use(bodyParser.json());
 app.use('/sentences', sentencesRouter);
 
 app.listen(process.env.PORT, () => {
-  console.log(`⚡️[server]: Server is running at https://localhost:${process.env.PORT}`);
+  console.log(`⚡️[server]: Server is running at http://localhost:${process.env.PORT}`);
 });

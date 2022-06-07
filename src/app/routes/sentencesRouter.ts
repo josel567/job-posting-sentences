@@ -16,11 +16,16 @@ sentencesRouter.post('/', async (req, res) => {
 });
 
 sentencesRouter.get('/:id', async (req, res) => {
-    const {id} = req.params;
-    
-    const sentence = await crudSentenceController.get(id);
+    try {
+        const {id} = req.params;
+        const sentence = await crudSentenceController.get(id);
 
-    return res.json(sentence.serialize());
+        return res.json(sentence.serialize());
+    } catch (error) {
+        res.json(error);
+        
+    }
+    
 });
 
 sentencesRouter.get('/', async (req, res) => {    
@@ -31,10 +36,11 @@ sentencesRouter.get('/', async (req, res) => {
 
 sentencesRouter.patch('/:id', async (req, res) => {
     const {id} = req.params;
+    const { text, cats } = req.body;
     
-    const sentence = await crudSentenceController.update(id);
+    await crudSentenceController.update(id, { text, cats });
 
-    return res.json(sentence.serialize());
+    return res.json("Document updated");
 });
 
 sentencesRouter.delete('/:id', async (req, res) => {
