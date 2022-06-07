@@ -1,0 +1,9 @@
+tr:first-child {
+    background-color: cadetblue;
+    color: aliceblue;
+    font-size: 1.2em;
+}
+
+tr:first-child td {
+    padding: .5em;
+}

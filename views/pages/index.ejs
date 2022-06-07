@@ -1,1 +1,15 @@
+<link rel="stylesheet" href="css/indexView.css">
+
 <h1>Welcome to the sentences app</h1>
+
+<h3>All sentences</h3>
+
+<table>
+    <tr><td>Text</td><td>Categories</td></tr>
+    <% for (var i = 0; i < sentences.length; i++) { %>
+        <tr>
+            <td><%= sentences[i].text %></td>
+            <td><%= sentences[i].cats %></td>
+        </tr>
+    <% } %>
+</table>

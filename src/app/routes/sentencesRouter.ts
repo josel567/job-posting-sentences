@@ -30,8 +30,11 @@ sentencesRouter.get('/:id', async (req, res) => {
 
 sentencesRouter.get('/', async (req, res) => {    
     const sentences = await crudSentenceController.getAll();
+    const serializedSentences = sentences.map(sentence => sentence.serialize());
 
-    return res.json(sentences.map(sentence => sentence.serialize()));
+    res.render('pages/index', {
+        sentences: serializedSentences
+    });
 });
 
 sentencesRouter.patch('/:id', async (req, res) => {
