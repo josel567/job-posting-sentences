@@ -13,9 +13,11 @@
     "url": "https://github.com/josel567/job-posting-sentences/issues"
   },
   "homepage": "https://github.com/josel567/job-posting-sentences#readme",
+  "engines": { "node": "14.0.0" },
   "scripts": {
     "build": "tsc",
-    "start": "node ./bin/app.js",
+    "postinstall": "tsc",
+    "start": "node ./dist/app.js",
     "dev": "ts-node ./src/app.ts"
   },
   "dependencies": {
