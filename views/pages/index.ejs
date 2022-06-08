@@ -5,9 +5,10 @@
 <h3>All sentences</h3>
 
 <table>
-    <tr><td>Text</td><td>Categories</td></tr>
+    <tr><td>ID</td><td>Text</td><td>Categories</td></tr>
     <% for (var i = 0; i < sentences.length; i++) { %>
         <tr>
+            <td><%= sentences[i].id %></td>
             <td><%= sentences[i].text %></td>
             <td><%= sentences[i].cats %></td>
         </tr>

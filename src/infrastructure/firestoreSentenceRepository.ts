@@ -48,15 +48,15 @@ export class FirestoreSentenceRepository implements ISentenceRepository {
         const sentences: SentencePrimitives[] = [];
 
         docs.forEach(doc => {
-            sentences.push(doc.data() as SentencePrimitives);
+            sentences.push({...doc.data(), id: doc.id} as SentencePrimitives);
         });
 
         return sentences;
     }
 
     public async save(sentence: Sentence): Promise<void> {
-        const docRef = this.db.collection("sentences").doc();
-        await docRef.set({text: sentence.serialize().text});
+        const docRef = this.db.collection("sentences").doc(sentence.serialize().id);
+        await docRef.set({text: sentence.serialize().text, cats: sentence.serialize().cats});
     }
     
 }
