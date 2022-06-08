@@ -16,6 +16,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
+app.use('/', viewsRouter);
 app.use('/sentences', sentencesRouter);
 app.use('/translations', translationsRouter);
 

@@ -16,15 +16,10 @@ sentencesRouter.post('/', async (req, res) => {
 });
 
 sentencesRouter.get('/:id', async (req, res) => {
-    try {
-        const {id} = req.params;
-        const sentence = await crudSentenceController.get(id);
+    const {id} = req.params;
+    const sentence = await crudSentenceController.get(id);
 
-        return res.json(sentence.serialize());
-    } catch (error) {
-        res.json(error);
-        
-    }
+    return res.json(sentence.serialize());
     
 });
 
@@ -42,6 +37,9 @@ sentencesRouter.get('/', async (req, res) => {
 sentencesRouter.patch('/:id', async (req, res) => {
     const {id} = req.params;
     const { text, cats } = req.body;
+
+    console.log(id);
+    
     
     await crudSentenceController.update(id, { text, cats });
 
