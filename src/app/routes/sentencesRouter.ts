@@ -28,8 +28,10 @@ sentencesRouter.get('/:id', async (req, res) => {
     
 });
 
-sentencesRouter.get('/', async (req, res) => {    
-    const sentences = await crudSentenceController.getAll();
+sentencesRouter.get('/', async (req, res) => {   
+    const { page, size } = req.query;
+    
+    const sentences = await crudSentenceController.getAll(Number(page), Number(size));
     const serializedSentences = sentences.map(sentence => sentence.serialize());
 
     res.render('pages/index', {

@@ -34,12 +34,20 @@ export class FirestoreSentenceRepository implements ISentenceRepository {
         return doc.data() as SentencePrimitives;
     }
 
-    public async findAll(): Promise<SentencePrimitives[]> {
-        const querySanpshot = await this.db.collection("sentences").get();
+    public async findAll(page?: number, size?: number): Promise<SentencePrimitives[]> {
+        const limit = size ? size : 10;
+        const startAt = page ? page : 1;
 
+        const allPages = await this.db.collection("sentences")
+        .orderBy("text")
+        .limit(limit * startAt)
+        .get();
+
+        const docs = allPages.docs.slice(allPages.docs.length - limit, allPages.docs.length);
+        
         const sentences: SentencePrimitives[] = [];
 
-        querySanpshot.forEach(doc => {
+        docs.forEach(doc => {
             sentences.push(doc.data() as SentencePrimitives);
         });
 

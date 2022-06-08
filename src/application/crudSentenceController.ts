@@ -14,8 +14,8 @@ export class CrudSentenceController {
         return Sentence.fromPrimitives(sentencePrimitives);
     }
 
-    public async getAll(): Promise<Sentence[]> {
-        const allSentencePrimitives = await this.sentenceRepository.findAll();
+    public async getAll(page?: number, size?: number): Promise<Sentence[]> {
+        const allSentencePrimitives = await this.sentenceRepository.findAll(page, size);
 
         return allSentencePrimitives.map(sentencePrimitives => {
             return Sentence.fromPrimitives(sentencePrimitives);
