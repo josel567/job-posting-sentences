@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
 import { TranslationsController } from '../../../contexts/sentences/application/translationsController';
-import { DeepLTranslationService } from '../../../contexts/sentences/services/translations/deepLTranslationService';
+import { DeepLTranslationService } from '../../../contexts/sentences/domain/services/translations/deepLTranslationService';
 
 const translationsRouter = Router();
 

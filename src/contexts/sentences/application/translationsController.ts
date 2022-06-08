@@ -1,4 +1,4 @@
-import { ITranslationService } from "../services/translations/ITranslationService";
+import { ITranslationService } from "../domain/services/translations/ITranslationService";
 
 export class TranslationsController {
     constructor(private readonly translationsService: ITranslationService) {}
