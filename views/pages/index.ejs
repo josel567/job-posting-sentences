@@ -5,12 +5,15 @@
 <h3>All sentences</h3>
 
 <table>
-    <tr><td>ID</td><td>Text</td><td>Categories</td></tr>
+    <tr><td>ID</td><td>Text</td><td>Categories</td><td>Actions</td></tr>
     <% for (var i = 0; i < sentences.length; i++) { %>
         <tr>
             <td><%= sentences[i].id %></td>
             <td><%= sentences[i].text %></td>
             <td><%= sentences[i].cats %></td>
+            <td class="actions"><a href="/update/<%= sentences[i].id %>">✎</a></td>
         </tr>
     <% } %>
 </table>
+
+<a href="/create" class="cta">Create new sentence</a>

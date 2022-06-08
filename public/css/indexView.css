@@ -1,13 +1,42 @@
+body {
+    text-align: center;
+}
+
 table {
     width: 100%;
+    margin-top: 2em;
 }
 
 tr:first-child {
-    background-color: cadetblue;
+    background-color: rgba(95, 158, 160, 0.808);
     color: aliceblue;
     font-size: 1.2em;
 }
 
 tr:first-child td {
     padding: .5em;
+}
+
+.cta {
+    background-color: aliceblue;
+    padding: 1em;
+    margin-top: 4em;
+    color: #000;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.2em;
+    border: 1px solid rgba(55, 101, 128, 0.712);
+}
+
+.actions {
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    color: rgba(0, 0, 0, 0.644);
+}
+
+.actions a{
+    text-decoration: none;
+    font-size: 1.2em;
+    color: rgba(0, 0, 0, 0.644);
 }
