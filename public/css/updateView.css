@@ -1,0 +1,17 @@
+body {
+    width: 100%;
+    text-align: center;
+}
+
+form {
+    max-width: 300px;
+    margin: auto;
+    background-color: aliceblue;
+    text-align: center;
+    padding-top: 1em;
+}
+
+input {
+    border: 0;
+    padding: 1em;
+}
