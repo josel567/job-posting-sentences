@@ -4,6 +4,8 @@ Server in Node.js + express.js with Typescript consisting of a basic CRUD workin
 
 ***This project is still in progress. Many parts of the system are not working properly due to implementation details (W.I.P.)***
 
+The project has been done trying to follow good practices, clean code, easy maintenance and scalability.
+
 Work has been done on decoupling between layers in various parts of the system, for example with external translation services or repositories.
 
 **Main scripts:**
