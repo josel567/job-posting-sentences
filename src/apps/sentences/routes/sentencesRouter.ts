@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { CrudSentenceController } from '../../application/crudSentenceController';
-import { FirestoreSentenceRepository } from '../../infrastructure/firestoreSentenceRepository';
+import { CrudSentenceController } from '../../../contexts/sentences/application/crudSentenceController';
+import { FirestoreSentenceRepository } from '../../../contexts/sentences/infrastructure/firestoreSentenceRepository';
 
 const sentencesRouter = Router();
 

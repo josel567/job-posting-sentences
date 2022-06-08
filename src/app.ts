@@ -2,9 +2,9 @@ import 'dotenv/config';
 import express, { Express } from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
-import sentencesRouter from './app/routes/sentencesRouter';
-import translationsRouter from './app/routes/translationsRouter';
-import viewsRouter from './app/routes/viewsRouter';
+import sentencesRouter from './apps/sentences/routes/sentencesRouter';
+import translationsRouter from './apps/sentences/routes/translationsRouter';
+import viewsRouter from './apps/sentences/routes/viewsRouter';
 
 dotenv.config();
 

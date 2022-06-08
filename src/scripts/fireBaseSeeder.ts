@@ -1,6 +1,6 @@
 import * as admin from "firebase-admin";
 
-import serviceAccount from "../services/firebase/config/serviceAccountKey.json";
+import serviceAccount from "../contexts/sentences/services/firebase/config/serviceAccountKey.json";
 import { sentences } from "./sentences";
 
 try {
