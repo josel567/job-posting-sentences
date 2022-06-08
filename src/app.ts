@@ -21,5 +21,6 @@ app.use('/sentences', sentencesRouter);
 app.use('/translations', translationsRouter);
 
 app.listen(process.env.PORT, () => {
-  console.log(`⚡️[server]: Server is running at http://localhost:${process.env.PORT}`);
+  console.log(`⚡️[server]: Server is running at port ${process.env.PORT}`);
+  console.log(process.env.serviceAccountKey); 
 });
