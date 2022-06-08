@@ -34,7 +34,7 @@ sentencesRouter.get('/', async (req, res) => {
     });
 });
 
-sentencesRouter.put('/:id', async (req, res) => {
+sentencesRouter.patch('/:id', async (req, res) => {
     const {id} = req.params;
     const { text, cats } = req.body;
 
