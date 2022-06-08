@@ -9,7 +9,7 @@ export class FirestoreSentenceRepository implements ISentenceRepository {
 
     constructor() {
         admin.initializeApp({
-            credential: admin.credential.cert(process.env.serviceAccountKey as admin.AppOptions)
+            credential: admin.credential.cert(JSON.parse(process.env.serviceAccountKey!))
         });
 
         this.db = admin.firestore();

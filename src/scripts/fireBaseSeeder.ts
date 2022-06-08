@@ -5,7 +5,7 @@ import { sentences } from "./sentences";
 try {
 
     admin.initializeApp({
-        credential: admin.credential.cert(process.env.serviceAccountKey as admin.AppOptions)
+        credential: admin.credential.cert(JSON.parse(process.env.serviceAccountKey!))
     });
 
     const db = admin.firestore();
