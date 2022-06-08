@@ -9,7 +9,7 @@
 <h3>You are updating sentence with ID: <%=id%></h3>
 
 <form name="sentence" method="post" action="/sentences/<%=id%>" >
-    <input type="hidden" name="_method" value="patch" />
+    <input type="hidden" name="_METHOD" value="PUT" />
     <input type="string" name="text" placeholder="New text here..."/><br><br>
     <input type="string" name="cats" placeholder="New cats separated by ,"/><br><br>
     <input type="submit" value="Update"/><br><br><hr>
