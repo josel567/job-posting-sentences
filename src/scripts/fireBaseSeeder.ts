@@ -1,12 +1,11 @@
 import * as admin from "firebase-admin";
 
-import serviceAccount from "../contexts/sentences/services/firebase/config/serviceAccountKey.json";
 import { sentences } from "./sentences";
 
 try {
 
     admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount as admin.AppOptions)
+        credential: admin.credential.cert(process.env.serviceAccountKey as admin.AppOptions)
     });
 
     const db = admin.firestore();
