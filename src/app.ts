@@ -5,13 +5,14 @@ import bodyParser from 'body-parser';
 import sentencesRouter from './apps/sentences/routes/sentencesRouter';
 import translationsRouter from './apps/sentences/routes/translationsRouter';
 import viewsRouter from './apps/sentences/routes/viewsRouter';
+import path from 'path';
 
 dotenv.config();
 
 const app: Express = express();
 
 app.set('view engine', 'ejs');
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
