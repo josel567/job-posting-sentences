@@ -3,15 +3,13 @@ import * as admin from "firebase-admin";
 import { SentencePrimitives, Sentence } from "../domain/models/sentence";
 import { ISentenceRepository } from "./ISentenceRepository";
 
-import serviceAccount from "../services/firebase/config/serviceAccountKey.json";
-
 export class FirestoreSentenceRepository implements ISentenceRepository {
 
     private readonly db: admin.firestore.Firestore;
 
     constructor() {
         admin.initializeApp({
-            credential: admin.credential.cert(serviceAccount as admin.AppOptions)
+            credential: admin.credential.cert(process.env.serviceAccountKey as admin.AppOptions)
         });
 
         this.db = admin.firestore();
