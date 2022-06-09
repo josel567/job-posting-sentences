@@ -22,6 +22,8 @@ Work has been done on decoupling between layers in various parts of the system, 
     - PATCH /sentence -> To update a sentence (optional body params: text and cats)
     - DELETE /sentence/:sentenceId -> To delete a sentence
 
+    - GET /translations (body params required: text and targetLang)
+
 **Live demo: https://job-posting-sentences.herokuapp.com/sentences**
 
 **TODO's:**
